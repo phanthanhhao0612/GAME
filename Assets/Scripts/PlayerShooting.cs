@@ -3,13 +3,20 @@ using UnityEngine;
 public class PlayerShootingSimple : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public float shootingInterval;
+    private float lastBulletTime;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Time.time - lastBulletTime > shootingInterval)
         {
-            Instantiate(bulletPrefab, transform.position,
-            transform.rotation);
+            ShootBullet();
+            lastBulletTime = Time.time;
         }
+    }
+
+    private void ShootBullet()
+    {
+        Instantiate(bulletPrefab, transform.position, transform.rotation);
     }
 }
