@@ -6,5 +6,11 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) => Die();
 
-    private void Die() => Destroy(gameObject);
+    private void Die()
+    {
+        var explosion = Instantiate(explosionPrefab, transform.position,
+        transform.rotation);
+        Destroy(explosion, 1);
+        Destroy(gameObject);
+    }
 }
