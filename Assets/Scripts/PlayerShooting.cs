@@ -2,11 +2,22 @@ using UnityEngine;
 
 public class PlayerShootingSimple : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+    public GameObject bulletPrefabs;
     public float shootingInterval;
+    public Vector3 bulletOffset;
+
     private float lastBulletTime;
 
+    // Update is called once per frame
     void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            UpdateFiring();
+        }
+    }
+
+    private void UpdateFiring()
     {
         if (Time.time - lastBulletTime > shootingInterval)
         {
@@ -17,6 +28,6 @@ public class PlayerShootingSimple : MonoBehaviour
 
     private void ShootBullet()
     {
-        Instantiate(bulletPrefab, transform.position, transform.rotation);
+        var bullet = Instantiate(bulletPrefabs, transform.position + bulletOffset, transform.rotation);
     }
 }
