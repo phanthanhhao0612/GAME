@@ -517,7 +517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38589268fa1d1c54ca5a0056c601ecb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 1587261729604890, guid: 14c24963c41977647973350e951a5e4d,
+    type: 3}
   defaultHealthPoint: 3
 --- !u!1 &1846538112
 GameObject:
