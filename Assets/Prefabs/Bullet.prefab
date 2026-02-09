@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   flySpeed: 5
+  damage: 1
 --- !u!61 &-7200353884733378538
 BoxCollider2D:
   m_ObjectHideFlags: 0
