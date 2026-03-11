@@ -4,13 +4,16 @@ public class Health : MonoBehaviour
 {
     public GameObject explosionPrefab;
     public int defaultHealthPoint;
-    public System.Action onDead;
 
-    private int healthPoint;
+    public System.Action onDead;
+    public System.Action onHealthChanged;
+
+    public int healthPoint;
 
     private void Start()
     {
         healthPoint = defaultHealthPoint;
+        onHealthChanged?.Invoke();
     }
 
     public void TakeDamage(int damage)
@@ -18,6 +21,7 @@ public class Health : MonoBehaviour
         if (healthPoint <= 0) return;
 
         healthPoint -= damage;
+        onHealthChanged?.Invoke();
 
         if (healthPoint <= 0)
         {
@@ -37,6 +41,7 @@ public class Health : MonoBehaviour
 
             Destroy(explosion, 1f);
         }
+
         onDead?.Invoke();
         Destroy(gameObject);
     }
